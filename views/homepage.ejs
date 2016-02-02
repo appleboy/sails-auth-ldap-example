@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <h1>聯發科報名系統</h1>
+  <p>申請測量心跳</p>
+  <% if (req.session.is_loggin) { %>
+  <p><a class="btn btn-primary btn-lg" href="/register" role="button">申請測量</a></p>
+  <% } else { %>
+  <p><a class="btn btn-primary btn-lg" href="/login" role="button">登入系統</a></p>
+  <% } %>
+</div>

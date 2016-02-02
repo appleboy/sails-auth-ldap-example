@@ -1,0 +1,25 @@
+<h1 class="page-header">申請紀錄</h1>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">列表</div>
+
+  <!-- Table -->
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>編號</th>
+        <th>日期</th>
+        <th>時間</th>
+        <th>操作</th>
+      </tr>
+    </tbody>
+    <% _.forEach(rows, function(value, key) { %>
+    <tr>
+      <td><%= (key + 1) %></td>
+      <td><%= value.getDate() %></td>
+      <td><%= value.getTime() %></td>
+      <td><a href="/record/delete/<%= value.id %>"><button type="button" class="btn btn-danger">取消</button></a></td>
+    </tr>
+    <% }); %>
+  </table>
+</div>
