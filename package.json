@@ -1,9 +1,12 @@
 {
-  "name": "mediatek",
-  "private": true,
+  "name": "sails-auth-ldap-example",
   "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
+  "description": "Example SailsJS application with ldap authentication",
+  "keywords": [
+    "SailsJS",
+    "LDAP",
+    "Auth"
+  ],
   "dependencies": {
     "bluebird": "^3.1.5",
     "connect-redis": "^1.4.5",
@@ -35,8 +38,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mtk10671/mediatek.git"
+    "url": "https://github.com/appleboy/sails-auth-ldap-example.git"
   },
-  "author": "mtk10671",
+  "author": "Bo-Yi Wu <appleboy.tw@gmail.com>",
   "license": ""
 }
