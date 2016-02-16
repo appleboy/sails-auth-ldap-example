@@ -147,8 +147,12 @@ module.exports = {
 
   register: function (req, res) {
 
-    var date = req.allParams().date;
-    var time = req.allParams().time || 0;
+    var date = req.allParams().date || '';
+    var time = +req.allParams().time || 0;
+
+    if (_.isEmpty(date) || _.isEmpty(time)) {
+      return res.view('register', data({error_text: '欄位請勿空白'}));
+    }
 
     Registeration.findOne({
       date: date,

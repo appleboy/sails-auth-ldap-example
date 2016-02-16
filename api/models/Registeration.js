@@ -3,10 +3,9 @@
 var moment = require('moment');
 
 var time = [];
-time[1] = '18:00 ~ 1900';
-time[2] = '19:00 ~ 2000';
-time[3] = '20:00 ~ 2100';
-time[4] = '21:00 ~ 2200';
+time[1] = '18:30 ~ 19:10';
+time[2] = '19:10 ~ 19:50';
+time[3] = '19:50 ~ 20:30';
 
 module.exports = {
   tableName: 'registerations',
