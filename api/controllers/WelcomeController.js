@@ -1,5 +1,7 @@
 'use strict';
 
+var passport = require('passport');
+
 var session = {
   init: function(req, row) {
     req.session.username = row.username;
@@ -117,24 +119,30 @@ module.exports = {
     var username = req.allParams().username;
     var password = req.allParams().password;
 
-    User.findOne({
-      username: username
-    }).exec(function(err, row) {
-
-      if (row) {
-        session.init(req, row);
-
-        return res.redirect('/register');
+    passport.authenticate('ldapauth', function(err, user, info) {
+      if(err || !user) {
+        return res.redirect('/login');
       }
 
-      return User.create({
+      User.findOne({
         username: username
       }).exec(function(err, row) {
-        session.init(req, row);
 
-        return res.redirect('/register');
+        if (row) {
+          session.init(req, row);
+
+          return res.redirect('/register');
+        }
+
+        return User.create({
+          username: username
+        }).exec(function(err, row) {
+          session.init(req, row);
+
+          return res.redirect('/register');
+        });
       });
-    });
+    })(req, res);
   },
 
   registerForm: function (req, res) {
@@ -148,9 +156,9 @@ module.exports = {
   register: function (req, res) {
 
     var date = req.allParams().date || '';
-    var time = +req.allParams().time || 0;
+    var time = req.allParams().time || '';
 
-    if (_.isEmpty(date) || _.isEmpty(time)) {
+    if (_.isEmpty(date) || _.isEmpty(time) || time === '0') {
       return res.view('register', data({error_text: '欄位請勿空白'}));
     }
 
