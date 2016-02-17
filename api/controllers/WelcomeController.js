@@ -150,7 +150,17 @@ module.exports = {
       return res.redirect('/login');
     }
 
-    return res.view('register', data());
+    var date = req.allParams().date || null;
+
+    return Registeration.find({date: date})
+      .populate('owner')
+      .exec(function findCB(err, rows){
+
+        return res.view('register', data({
+          date: date,
+          rows: rows
+        }));
+      });
   },
 
   register: function (req, res) {
@@ -177,7 +187,7 @@ module.exports = {
         time: time
       }).exec(function(err, created) {
 
-        return res.view('register', data({success_text: '申請成功'}));
+        res.redirect('/records');
       });
     });
   },

@@ -10,6 +10,8 @@ $(function() {
       if (day === 'Wed' || day === 'Fri' || day === 'Sat' || day === 'Sun') {
         $(this).val('');
         alert('目前只有開放禮拜一，禮拜二，禮拜四');
+      } else {
+        window.location = '/register?date=' + $(this).val();
       }
     }
   });
@@ -33,4 +35,4 @@ $(function() {
       $( "#start" ).datepicker( "option", "maxDate", selectedDate );
     }
   });
-});
+})();

@@ -1,3 +1,28 @@
+<% if (date) { %>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= date%> 列表</div>
+  <!-- Table -->
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>編號</th>
+        <th>申請人</th>
+        <th>日期</th>
+        <th>時間</th>
+      </tr>
+    </tbody>
+    <% _.forEach(rows, function(value, key) { %>
+    <tr>
+      <td><%= (key + 1) %></td>
+      <td><%= value.owner.username %></td>
+      <td><%= value.getDate() %></td>
+      <td><%= value.getTime() %></td>
+    </tr>
+    <% }); %>
+  </table>
+</div>
+<% } %>
 <h1 class="page-header">申請表單</h1>
 <div class="panel panel-warning">
   <div class="panel-heading">申請測量時間</div>
@@ -6,7 +31,7 @@
       <div class="form-group">
         <label for="date" class="col-sm-2 control-label">日期</label>
         <div class="col-sm-10">
-          <input id="datepicker" name="date" type="text" class="form-control" placeholder="請選擇日期" />
+          <input id="datepicker" name="date" type="text" class="form-control" placeholder="請選擇日期" value="<% if (date) { %><%= date %><% } %>" />
           <span id="helpBlock2" class="help-block">目前只有開放禮拜一，禮拜二，禮拜四</span>
         </div>
       </div>
