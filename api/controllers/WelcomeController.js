@@ -165,11 +165,14 @@ module.exports = {
 
   register: function (req, res) {
 
-    var date = req.allParams().date || '';
-    var time = req.allParams().time || '';
+    var date = req.allParams().date || null;
+    var time = req.allParams().time || null;
 
     if (_.isEmpty(date) || _.isEmpty(time) || time === '0') {
-      return res.view('register', data({error_text: '欄位請勿空白'}));
+      return res.view('register', data({
+        date: null,
+        error_text: '欄位請勿空白'
+      }));
     }
 
     Registeration.findOne({
@@ -178,7 +181,10 @@ module.exports = {
     }).exec(function(err, row) {
 
       if (row) {
-        return res.view('register', data({error_text: '此時段已經有人申請過了'}));
+        return res.view('register', data({
+          date: null,
+          error_text: '此時段已經有人申請過了'
+        }));
       }
 
       return Registeration.create({
