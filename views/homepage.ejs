@@ -1,9 +1,10 @@
-<div class="jumbotron">
-  <h1>跑步機預約系統</h1>
-  <p>申請測量心跳 + 跑步機預約</p>
+  <p><img style="max-width: 100%" src="/images/intro_1.png"></p>
+  <p><img style="max-width: 100%" src="/images/intro_2.png"></p>
+  <p><img style="max-width: 100%" src="/images/intro_3.png"></p>
+  <p><img style="max-width: 100%" src="/images/intro_4.png"></p>
+
   <% if (req.session.is_loggin) { %>
-  <p><a class="btn btn-primary btn-lg" href="/register" role="button">申請測量</a></p>
+  <p style="text-align: center"><a class="btn btn-primary btn-lg" href="/register" role="button">申請測量</a></p>
   <% } else { %>
-  <p><a class="btn btn-primary btn-lg" href="/login" role="button">登入系統</a></p>
+  <p style="text-align: center"><a class="btn btn-primary btn-lg" href="/login" role="button">登入系統</a></p>
   <% } %>
-</div>
