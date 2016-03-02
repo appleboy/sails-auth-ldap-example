@@ -7,9 +7,9 @@ $(function() {
     onSelect: function (dateText, inst) {
       var date = $(this).datepicker('getDate');
       var day = $.datepicker.formatDate('D', date);
-      if (day === 'Wed' || day === 'Fri' || day === 'Sat' || day === 'Sun') {
+      if (day === 'Tue' || day === 'Wed' || day === 'Fri' || day === 'Sat' || day === 'Sun') {
         $(this).val('');
-        alert('目前只有開放禮拜一，禮拜二，禮拜四');
+        alert('目前只有開放禮拜一，禮拜四');
       } else {
         window.location = '/register?date=' + $(this).val();
       }
