@@ -29,7 +29,7 @@
     "passport": "^0.3.2",
     "passport-ldapauth": "^0.5.0",
     "rc": "~1.1.6",
-    "sails": "^0.12.1",
+    "sails": "^0.12.2",
     "sails-disk": "~0.10.0",
     "sails-mysql": "^0.12.1"
   },
