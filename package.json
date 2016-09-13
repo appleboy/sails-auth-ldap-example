@@ -25,7 +25,7 @@
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "~0.6.2",
     "include-all": "~1.0.0",
-    "moment": "^2.14.1",
+    "moment": "^2.15.0",
     "passport": "^0.3.2",
     "passport-ldapauth": "^0.5.0",
     "rc": "~1.1.6",
