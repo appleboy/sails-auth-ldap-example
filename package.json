@@ -24,7 +24,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sails-linker": "~0.10.1",
     "grunt-sync": "~0.6.2",
-    "include-all": "~1.0.0",
+    "include-all": "~1.0.4",
     "moment": "^2.14.1",
     "passport": "^0.3.2",
     "passport-ldapauth": "^0.5.0",
